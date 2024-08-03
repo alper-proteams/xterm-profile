@@ -118,8 +118,17 @@ And when you're dead I will be still alive.\r\n\
 STILL ALIVE\r\n\
 STILL ALIVE`;
 
-    function playMIDI() {
+    async function playMIDI() {
         MIDIjs.play('Portal_Still_Alive.mid');
+        await printStillAlive();
+    }
+
+    async function printStillAlive() {
+        const lines = stillAlive.split('\r\n');
+        for (const line of lines) {
+            term.writeln(line);
+            await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
+        }
     }
 
     const commands = {
@@ -165,9 +174,9 @@ Previous Positions:\r\n\
   (1997 - 2003)`,
         awards: `• Turkcell CXO Award\r\n\
 • Patent: OCR Assisted Mobile Operator Subscription (Bir Abonelik Sistemi)`,
-        cake: () => {
+        cake: async () => {
             term.writeln('Playing "Still Alive"...');
-            playMIDI();
+            await playMIDI();
         },
         clear: () => {
             term.clear();
