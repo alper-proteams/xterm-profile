@@ -183,6 +183,7 @@ Previous Positions:\r\n\
             await playMIDI();
         },
         clear: () => {
+            MIDIjs.stop(); // Stop the MIDI if it's playing
             term.clear();
             term.write(header);
             term.write(header2);
