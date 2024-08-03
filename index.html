@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alper Semerci - Terminal-Style Personal Webpage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: monospace;
+        }
+        #terminal {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal"></div>
+
+    <script>
+        const term = new Terminal({
+            cursorBlink: true,
+            theme: {
+                background: '#000000',
+                foreground: '#00FF00'
+            },
+            cols: 80,
+            rows: 24
+        });
+
+        term.open(document.getElementById('terminal'));
+
+        const header = `\r\n`;
+        const header2 = `
+\x1b[37m┌──── \x1b[1mAlper Semerci\x1b[22m ──────────────────────────────────────────────┐\x1b[92m\r\n\
+\x1b[37m│\x1b[92m                                                                 \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m \x1b[1mSoftware Engineering Manager @ Proteams\x1b[22m                         \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m \x1b[1mFreelancer Platform Management\x1b[22m                                  \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m \x1b[1mIstanbul, Türkiye\x1b[22m                                               \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m                                                                 \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m \x1b[1mExperience:\x1b[22m                 \x1b[37m│\x1b[92m \x1b[1mSkills:\x1b[22m                           \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m • 11+ years in software dev \x1b[37m│\x1b[92m • Java, Spring Boot               \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m • Leading team at Proteams  \x1b[37m│\x1b[92m • Cloud Tech, Mobile Dev          \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m                             \x1b[37m│\x1b[92m                                   \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m \x1b[1mBackground:\x1b[22m                 \x1b[37m│\x1b[92m \x1b[1mLanguages:\x1b[22m                        \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m • Turkcell Technology       \x1b[37m│\x1b[92m • Turkish (Native)                \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m • Nortel Netas              \x1b[37m│\x1b[92m • English (Professional)          \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m                             \x1b[37m│\x1b[92m                                   \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m \x1b[1mEducation:\x1b[22m                  \x1b[37m│\x1b[92m \x1b[1mAchievements:\x1b[22m                     \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m • B.S. Computer Engineering \x1b[37m│\x1b[92m • Turkcell CXO Award              \x1b[37m│\x1b[92m\r\n\
+\x1b[37m│\x1b[92m   Ege Üniversitesi          \x1b[37m│\x1b[92m • Patent: OCR Assisted Sub.       \x1b[37m│\x1b[92m\r\n\
+\x1b[37m└─────────────────────────────────────────────────────────────────┘\x1b[92m\r\n\
+Type 'help' to see available commands.\r\n`;
+
+        const commands = {
+            help: 'Available commands: about, contact, skills, experience, education, awards, clear',
+            about: `Hi, I'm Alper Semerci. I'm a Software Engineering Manager with over 11 years\r\n\
+of experience in software development. I'm passionate about cloud and mobile\r\n\
+technologies, and I currently lead the software engineering team at Proteams,\r\n\
+a freelancer platform based in Istanbul, Türkiye.`,
+            contact: `Email: semerci@gmail.com\r\n\
+LinkedIn: www.linkedin.com/in/alper-semerci\r\n\
+Website: alpersemerci.com/me`,
+            skills: `Top Skills:\r\n\
+• Java\r\n\
+• Spring Boot\r\n\
+• Software Development\r\n\
+• Cloud Technologies\r\n\
+• Mobile Development\r\n\
+\r\n\
+Languages:\r\n\
+• Turkish (Native)\r\n\
+• English (Professional Working)`,
+            experience: `Current Position:\r\n\
+Software Engineering Manager at Proteams (August 2019 - Present)\r\n\
+• Leading software engineering team\r\n\
+• Designing and developing core platform features\r\n\
+• Managing and mentoring developers\r\n\
+\r\n\
+Previous Positions:\r\n\
+1. Senior Software Developer at Turkcell Technology (2014 - 2019)\r\n\
+   • Worked on lifebox cloud storage and Turkcell Curio analytics platform\r\n\
+   • Implemented features like face recognition, geospatial analytics, and\r\n\
+     marketing automation\r\n\
+\r\n\
+2. Software Developer at Turkcell Technology (2010 - 2019)\r\n\
+   • Worked on Turkcell MAYA CRM platform\r\n\
+   • Developed subscription processes for over 34 million customers\r\n\
+\r\n\
+3. Software Engineer at Nortel Netas (2008 - 2010)\r\n\
+   • Implemented features for PSTN services on CS2K Digital Multiplex System`,
+            education: `• Bachelor's degree in Computer Engineering from Ege Üniversitesi (2004 - 2008)\r\n\
+• High School diploma in Mathematics and Science from Bornova Anadolu Lisesi\r\n\
+  (1997 - 2003)`,
+            awards: `• Turkcell CXO Award\r\n\
+• Patent: OCR Assisted Mobile Operator Subscription (Bir Abonelik Sistemi)`,
+            clear: () => {
+                term.clear();
+                term.write(header);
+                term.write(header2);
+            }
+        };
+
+        term.write(header);
+        term.write(header2);
+        term.write('$ ');
+
+        let currentLine = '';
+
+        term.onKey(({ key, domEvent }) => {
+            const printable = !domEvent.altKey && !domEvent.ctrlKey && !domEvent.metaKey;
+
+            if (domEvent.keyCode === 13) {
+                term.write('\r\n');
+                handleCommand(currentLine.trim());
+                currentLine = '';
+                term.write('$ ');
+            } else if (domEvent.keyCode === 8) {
+                if (currentLine.length > 0) {
+                    term.write('\b \b');
+                    currentLine = currentLine.slice(0, -1);
+                }
+            } else if (printable) {
+                term.write(key);
+                currentLine += key;
+            }
+        });
+
+        function handleCommand(command) {
+            if (commands.hasOwnProperty(command)) {
+                if (typeof commands[command] === 'function') {
+                    commands[command]();
+                } else {
+                    term.writeln(commands[command]);
+                }
+            } else {
+                term.writeln(`Command not found: ${command}. Type "help" for available commands.`);
+            }
+        }
+    </script>
+</body>
+</html>
