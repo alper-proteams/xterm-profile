@@ -127,7 +127,7 @@ STILL ALIVE`;
         const lines = stillAlive.split('\r\n');
         for (const line of lines) {
             term.writeln(line);
-            await new Promise(resolve => setTimeout(resolve, 1000)); // 2 second delay
+            await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
         }
     }
 
