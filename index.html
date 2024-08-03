@@ -74,6 +74,8 @@ Aperture Science\r\n\
 We do what we must because we can.\r\n\
 For the good of all of us.\r\n\
 Except the ones who are dead.\r\n\
+
+    let isPrintingStillAlive = false;
 \r\n\
 But there's no sense crying over every mistake.\r\n\
 You just keep on trying till you run out of cake.\r\n\
@@ -125,14 +127,17 @@ STILL ALIVE`;
     }
 
     async function printStillAlive() {
+        isPrintingStillAlive = true;
         // Initial delay of 3 seconds
         await new Promise(resolve => setTimeout(resolve, 3000));
         
         const lines = stillAlive.split('\r\n');
         for (const line of lines) {
+            if (!isPrintingStillAlive) break;
             term.writeln(line);
             await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
         }
+        isPrintingStillAlive = false;
     }
 
     const commands = {
@@ -184,6 +189,7 @@ Previous Positions:\r\n\
         },
         clear: () => {
             MIDIjs.stop(); // Stop the MIDI if it's playing
+            isPrintingStillAlive = false; // Stop printing Still Alive lyrics
             term.clear();
             term.write(header);
             term.write(header2);
