@@ -7,6 +7,7 @@
     <title>Alper Semerci - Terminal-Style Personal Webpage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
+    <script src='https://www.midijs.net/lib/midi.js'></script>
     <style>
         body {
             margin: 0;
@@ -64,8 +65,12 @@
 \x1b[37m└─────────────────────────────────────────────────────────────────┘\x1b[92m\r\n\
 Type 'help' to see available commands.\r\n`;
 
+        function playMIDI() {
+            MIDIjs.play('Portal_Still_Alive.mid');
+        }
+
         const commands = {
-            help: 'Available commands: about, contact, skills, experience, education, awards, clear',
+            help: 'Available commands: about, contact, skills, experience, education, awards, clear, cake',
             about: `Hi, I'm Alper Semerci. I'm a Software Engineering Manager with over 11 years\r\n\
 of experience in software development. I'm passionate about cloud and mobile\r\n\
 technologies, and I currently lead the software engineering team at Proteams,\r\n\
@@ -106,6 +111,13 @@ Previous Positions:\r\n\
   (1997 - 2003)`,
             awards: `• Turkcell CXO Award\r\n\
 • Patent: OCR Assisted Mobile Operator Subscription (Bir Abonelik Sistemi)`,
+            cake: () => {
+                term.writeln('This was a triumph!');
+                term.writeln('I\'m making a note here:');
+                term.writeln('HUGE SUCCESS.');
+                term.writeln('Playing "Still Alive"...');
+                playMIDI();
+            },
             clear: () => {
                 term.clear();
                 term.write(header);
