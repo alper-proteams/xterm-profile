@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alper Semerci - Terminal-Style Personal Webpage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
     <script src='https://www.midijs.net/lib/midi.js'></script>
     <style>
@@ -19,6 +19,7 @@
             height: 100vh;
             font-family: monospace;
         }
+
         #terminal {
             width: 800px;
             height: 600px;
@@ -26,23 +27,23 @@
     </style>
 </head>
 <body>
-    <div id="terminal"></div>
+<div id="terminal"></div>
 
-    <script>
-        const term = new Terminal({
-            cursorBlink: true,
-            theme: {
-                background: '#000000',
-                foreground: '#00FF00'
-            },
-            cols: 80,
-            rows: 24
-        });
+<script>
+    const term = new Terminal({
+        cursorBlink: true,
+        theme: {
+            background: '#000000',
+            foreground: '#00FF00'
+        },
+        cols: 80,
+        rows: 24
+    });
 
-        term.open(document.getElementById('terminal'));
+    term.open(document.getElementById('terminal'));
 
-        const header = `\r\n`;
-        const header2 = `
+    const header = `\r\n`;
+    const header2 = `
 \x1b[37m┌──── \x1b[1mAlper Semerci\x1b[22m ──────────────────────────────────────────────┐\x1b[92m\r\n\
 \x1b[37m│\x1b[92m                                                                 \x1b[37m│\x1b[92m\r\n\
 \x1b[37m│\x1b[92m \x1b[1mSoftware Engineering Manager @ Proteams\x1b[22m                         \x1b[37m│\x1b[92m\r\n\
@@ -65,20 +66,21 @@
 \x1b[37m└─────────────────────────────────────────────────────────────────┘\x1b[92m\r\n\
 Type 'help' to see available commands.\r\n`;
 
-        function playMIDI() {
-            MIDIjs.play('Portal_Still_Alive.mid');
-        }
+    function playMIDI() {
+        MIDIjs.play('Portal_Still_Alive.mid');
+    }
 
-        const commands = {
-            help: 'Available commands: about, contact, skills, experience, education, awards, clear, cake',
-            about: `Hi, I'm Alper Semerci. I'm a Software Engineering Manager with over 11 years\r\n\
+    const commands = {
+        help: 'Available commands:\r\n\ ' +
+            'about, contact, skills, experience, education, awards, clear, cake',
+        about: `Hi, I'm Alper Semerci. I'm a Software Engineering Manager with over 11 years\r\n\
 of experience in software development. I'm passionate about cloud and mobile\r\n\
 technologies, and I currently lead the software engineering team at Proteams,\r\n\
 a freelancer platform based in Istanbul, Türkiye.`,
-            contact: `Email: semerci@gmail.com\r\n\
+        contact: `Email: semerci@gmail.com\r\n\
 LinkedIn: www.linkedin.com/in/alper-semerci\r\n\
 Website: alpersemerci.com/me`,
-            skills: `Top Skills:\r\n\
+        skills: `Top Skills:\r\n\
 • Java\r\n\
 • Spring Boot\r\n\
 • Software Development\r\n\
@@ -88,7 +90,7 @@ Website: alpersemerci.com/me`,
 Languages:\r\n\
 • Turkish (Native)\r\n\
 • English (Professional Working)`,
-            experience: `Current Position:\r\n\
+        experience: `Current Position:\r\n\
 Software Engineering Manager at Proteams (August 2019 - Present)\r\n\
 • Leading software engineering team\r\n\
 • Designing and developing core platform features\r\n\
@@ -106,58 +108,58 @@ Previous Positions:\r\n\
 \r\n\
 3. Software Engineer at Nortel Netas (2008 - 2010)\r\n\
    • Implemented features for PSTN services on CS2K Digital Multiplex System`,
-            education: `• Bachelor's degree in Computer Engineering from Ege Üniversitesi (2004 - 2008)\r\n\
+        education: `• Bachelor's degree in Computer Engineering from Ege Üniversitesi (2004 - 2008)\r\n\
 • High School diploma in Mathematics and Science from Bornova Anadolu Lisesi\r\n\
   (1997 - 2003)`,
-            awards: `• Turkcell CXO Award\r\n\
+        awards: `• Turkcell CXO Award\r\n\
 • Patent: OCR Assisted Mobile Operator Subscription (Bir Abonelik Sistemi)`,
-            cake: () => {
-                term.writeln('Playing "Still Alive"...');
-                playMIDI();
-            },
-            clear: () => {
-                term.clear();
-                term.write(header);
-                term.write(header2);
-            }
-        };
-
-        term.write(header);
-        term.write(header2);
-        term.write('$ ');
-
-        let currentLine = '';
-
-        term.onKey(({ key, domEvent }) => {
-            const printable = !domEvent.altKey && !domEvent.ctrlKey && !domEvent.metaKey;
-
-            if (domEvent.keyCode === 13) {
-                term.write('\r\n');
-                handleCommand(currentLine.trim());
-                currentLine = '';
-                term.write('$ ');
-            } else if (domEvent.keyCode === 8) {
-                if (currentLine.length > 0) {
-                    term.write('\b \b');
-                    currentLine = currentLine.slice(0, -1);
-                }
-            } else if (printable) {
-                term.write(key);
-                currentLine += key;
-            }
-        });
-
-        function handleCommand(command) {
-            if (commands.hasOwnProperty(command)) {
-                if (typeof commands[command] === 'function') {
-                    commands[command]();
-                } else {
-                    term.writeln(commands[command]);
-                }
-            } else {
-                term.writeln(`Command not found: ${command}. Type "help" for available commands.`);
-            }
+        cake: () => {
+            term.writeln('Playing "Still Alive"...');
+            playMIDI();
+        },
+        clear: () => {
+            term.clear();
+            term.write(header);
+            term.write(header2);
         }
-    </script>
+    };
+
+    term.write(header);
+    term.write(header2);
+    term.write('$ ');
+
+    let currentLine = '';
+
+    term.onKey(({key, domEvent}) => {
+        const printable = !domEvent.altKey && !domEvent.ctrlKey && !domEvent.metaKey;
+
+        if (domEvent.keyCode === 13) {
+            term.write('\r\n');
+            handleCommand(currentLine.trim());
+            currentLine = '';
+            term.write('$ ');
+        } else if (domEvent.keyCode === 8) {
+            if (currentLine.length > 0) {
+                term.write('\b \b');
+                currentLine = currentLine.slice(0, -1);
+            }
+        } else if (printable) {
+            term.write(key);
+            currentLine += key;
+        }
+    });
+
+    function handleCommand(command) {
+        if (commands.hasOwnProperty(command)) {
+            if (typeof commands[command] === 'function') {
+                commands[command]();
+            } else {
+                term.writeln(commands[command]);
+            }
+        } else {
+            term.writeln(`Command not found: ${command}. Type "help" for available commands.`);
+        }
+    }
+</script>
 </body>
 </html>
