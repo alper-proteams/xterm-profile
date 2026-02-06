@@ -1,235 +1,647 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alper Semerci - Personal Webpage - V1.3</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/xterm.min.js"></script>
-    <script src='https://www.midijs.net/lib/midi.js'></script>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: monospace;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alper Semerci | Portfolio</title>
+  <meta name="description" content="Minimal portfolio of Alper Semerci, CTO at Proteams." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #efeee8;
+      --ink: #101214;
+      --muted: #43484f;
+      --line: #101214;
+      --panel: rgba(255, 255, 255, 0.32);
+      --photo-bg: #d5d4ce;
+      --max: 1280px;
+      --pad: 22px;
+    }
 
-        #terminal {
-            width: 800px;
-            height: 600px;
-        }
-    </style>
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #1a1d21;
+      --ink: #f2f3f5;
+      --muted: #c1c7d0;
+      --line: rgba(242, 243, 245, 0.78);
+      --panel: rgba(31, 34, 38, 0.9);
+      --photo-bg: #2a2f35;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border-radius: 0 !important;
+    }
+
+    html,
+    body {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "IBM Plex Sans", sans-serif;
+      line-height: 1.55;
+      padding: 20px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site {
+      max-width: var(--max);
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--line);
+      padding: 12px var(--pad);
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: border-color 0.25s ease;
+    }
+
+    .brand {
+      font-family: "Sora", sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: opacity 0.2s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .theme-toggle:hover {
+      opacity: 0.72;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 58% 42%;
+      min-height: clamp(420px, 54vh, 620px);
+    }
+
+    .hero-left,
+    .hero-right {
+      padding: 28px var(--pad);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-left {
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .hero-title {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(2.9rem, 8vw, 7.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      max-width: 7ch;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.85;
+    }
+
+    .hero-right {
+      border-left: 1px solid var(--line);
+      justify-content: flex-start;
+      gap: 28px;
+      transition: border-color 0.25s ease;
+    }
+
+    .hero-photo {
+      width: min(170px, 100%);
+      border: 1px solid var(--line);
+      background: var(--photo-bg);
+      margin: 0;
+      overflow: hidden;
+      border-radius: 22px !important;
+      transition: border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      filter: grayscale(100%);
+      cursor: pointer;
+      border-radius: 22px !important;
+    }
+
+    .hero-meta {
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      width: min(360px, 100%);
+      transition: border-color 0.25s ease;
+    }
+
+    .hero-name {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.4rem, 2.8vw, 2.35rem);
+      line-height: 1.16;
+      letter-spacing: 0.22em;
+      margin-bottom: 12px;
+    }
+
+    .hero-years {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.4rem, 2.2vw, 2rem);
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-loc {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      transition: color 0.25s ease;
+    }
+
+    .section {
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      min-height: 220px;
+      transition: border-color 0.25s ease;
+    }
+
+    .section-label {
+      border-right: 1px solid var(--line);
+      padding: 24px var(--pad);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      transition: border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .section-content {
+      padding: 24px var(--pad);
+    }
+
+    .section-content h2 {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.3rem, 2.8vw, 2.4rem);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+    }
+
+    .section-content p {
+      max-width: 72ch;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-size: 0.98rem;
+      transition: color 0.25s ease;
+    }
+
+    .photo-note {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      transition: border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .impact {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-left: 1px solid var(--line);
+      border-top: 1px solid var(--line);
+      margin-top: 8px;
+      transition: border-color 0.25s ease;
+    }
+
+    .impact div {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 16px;
+      transition: border-color 0.25s ease;
+    }
+
+    .impact strong {
+      display: block;
+      font-family: "Sora", sans-serif;
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .impact span {
+      font-size: 0.87rem;
+      color: var(--muted);
+      transition: color 0.25s ease;
+    }
+
+    .timeline {
+      border-top: 1px solid var(--line);
+      transition: border-color 0.25s ease;
+    }
+
+    .job {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      border-bottom: 1px solid var(--line);
+      transition: border-color 0.25s ease;
+    }
+
+    .job-time {
+      border-right: 1px solid var(--line);
+      padding: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      transition: border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .job-body {
+      padding: 16px;
+    }
+
+    .job-body h3 {
+      font-family: "Sora", sans-serif;
+      font-size: 1rem;
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .job-body p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      transition: color 0.25s ease;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 24px var(--pad) 30px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+      transition: border-color 0.25s ease;
+    }
+
+    .footer a {
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      transition: border-color 0.25s ease;
+    }
+
+    .footer a:hover {
+      opacity: 0.7;
+    }
+
+    .footer-note {
+      width: 100%;
+      margin-top: 4px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: color 0.25s ease;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        min-height: auto;
+        align-items: flex-start;
+      }
+
+      .hero-photo {
+        width: min(150px, 100%);
+        margin-bottom: 18px;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+      }
+
+      .section-label {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .job {
+        grid-template-columns: 1fr;
+      }
+
+      .job-time {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 10px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .topbar-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .impact {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        max-width: 10ch;
+      }
+    }
+  </style>
 </head>
 <body>
-<div id="terminal"></div>
+  <main class="site">
+    <header class="topbar">
+      <div class="brand">Alper Semerci</div>
+      <div class="topbar-right">
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#profile">Profile</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">Dark</button>
+      </div>
+    </header>
 
-<script>
-    const term = new Terminal({
-        cursorBlink: true,
-        theme: {
-            background: '#000000',
-            foreground: '#00FF00'
-        },
-        cols: 80,
-        rows: 24
-    });
+    <section class="hero" id="top">
+      <div class="hero-left">
+        <h1 class="hero-title">portfolio.</h1>
+        <p class="hero-sub">CTO @ Proteams | AI & Platform Engineering</p>
+      </div>
+      <div class="hero-right">
+        <figure class="hero-photo">
+          <img id="profile-image" src="2F1B37AD4236.PNG" data-reveal-src="1689332889717.jpg" alt="Profile photo of Alper Semerci" />
+        </figure>
+        <div class="hero-meta">
+          <p class="hero-name">ALPER<br/>SEMERCI</p>
+          <p class="hero-years">2008-Present</p>
+          <p class="hero-loc">Istanbul, Turkiye</p>
+        </div>
+      </div>
+    </section>
 
-    term.open(document.getElementById('terminal'));
+    <section class="section" id="about">
+      <div class="section-label">About</div>
+      <div class="section-content">
+        <h2>Technology leadership with measurable business impact.</h2>
+        <p>
+          I am a technology leader with 17+ years of software engineering experience and strong focus on artificial intelligence.
+          At Proteams, I lead hypercare-enabled platform development for Fortune 500 clients including Microsoft, AstraZeneca, and Novo Nordisk.
+        </p>
+        <p>
+          My work combines deep AI knowledge with cloud-native architecture to deliver production-grade systems in recognition,
+          geospatial analytics, recommendation engines, and intelligent automation.
+        </p>
+        <div class="impact" aria-label="Key impact metrics">
+          <div><strong>17+</strong><span>Years in software engineering</span></div>
+          <div><strong>6,000+</strong><span>Vetted senior professionals supported</span></div>
+          <div><strong>50-80%</strong><span>Cost savings vs traditional vendors</span></div>
+          <div><strong>250M+</strong><span>Daily transactions processed at scale</span></div>
+        </div>
+      </div>
+    </section>
 
-    const header = `\r\n`;
-    const header2 = `
-\x1b[37m┌──── \x1b[1mAlper Semerci\x1b[22m ──────────────────────────────────────────────┐\x1b[92m\r\n\
-\x1b[37m│\x1b[92m                                                                 \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[37m \x1b[1mSoftware Engineering Manager @ Proteams\x1b[22m                         \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[37m \x1b[1mFreelancer Platform Management\x1b[22m                                  \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[37m \x1b[1mIstanbul, Türkiye\x1b[22m                                               \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m                                                                 \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[37m \x1b[1mhttps://www.linkedin.com/in/alper-semerci/\x1b[22m                      \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[37m \x1b[1mhttps://github.com/alper-proteams/\x1b[22m                              \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m                                                                 \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m \x1b[1mExperience:\x1b[22m                 \x1b[37m│\x1b[92m \x1b[1mSkills:\x1b[22m                           \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m • 11+ years in software dev \x1b[37m│\x1b[92m • Java, Spring Boot               \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m • Leading team at Proteams  \x1b[37m│\x1b[92m • Cloud Tech, Mobile Dev          \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m                             \x1b[37m│\x1b[92m                                   \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m \x1b[1mBackground:\x1b[22m                 \x1b[37m│\x1b[92m \x1b[1mLanguages:\x1b[22m                        \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m • Turkcell Technology       \x1b[37m│\x1b[92m • Turkish (Native)                \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m • Nortel Netas              \x1b[37m│\x1b[92m • English (Professional)          \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m                             \x1b[37m│\x1b[92m                                   \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m \x1b[1mEducation:\x1b[22m                  \x1b[37m│\x1b[92m \x1b[1mAchievements:\x1b[22m                     \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m • B.S. Computer Engineering \x1b[37m│\x1b[92m • Turkcell CXO Award              \x1b[37m│\x1b[92m\r\n\
-\x1b[37m│\x1b[92m   Ege Üniversitesi          \x1b[37m│\x1b[92m • Patent: OCR Assisted Sub.       \x1b[37m│\x1b[92m\r\n\
-\x1b[37m└─────────────────────────────────────────────────────────────────┘\x1b[92m\r\n\
-Type 'help' to see available commands.\r\n`;
+    <section class="section" id="profile">
+      <div class="section-label">Profile</div>
+      <div class="section-content">
+        <h2>Hands-on engineering, strategic product direction.</h2>
+        <p>
+          I lead with a practical approach: technical depth, clear product thinking, and reliable delivery.
+          My focus is building systems that scale globally while staying deterministic, trustworthy, and operationally sound.
+        </p>
+        <p class="photo-note">
+          Key domains: AI engineering, cloud-native systems, enterprise architecture, and flexible workforce platforms.
+        </p>
+      </div>
+    </section>
 
-    const stillAlive = `This was a triumph!\r\n\
-I'm making a note here: HUGE SUCCESS.\r\n\
-It's hard to overstate my satisfaction.\r\n\
-Aperture Science\r\n\
-We do what we must because we can.\r\n\
-For the good of all of us.\r\n\
-Except the ones who are dead.\r\n\
-\r\n\
-But there's no sense crying over every mistake.\r\n\
-You just keep on trying till you run out of cake.\r\n\
-And the Science gets done.\r\n\
-And you make a neat gun.\r\n\
-For the people who are still alive.\r\n\
-\r\n\
-I'm not even angry.\r\n\
-I'm being so sincere right now.\r\n\
-Even though you broke my heart.\r\n\
-And killed me.\r\n\
-And tore me to pieces.\r\n\
-And threw every piece into a fire.\r\n\
-As they burned it hurt because I was so happy for you!\r\n\
-\r\n\
-Now these points of data make a beautiful line.\r\n\
-And we're out of beta.\r\n\
-We're releasing on time.\r\n\
-So I'm GLaD. I got burned.\r\n\
-Think of all the things we learned\r\n\
-for the people who are still alive.\r\n\
-\r\n\
-Go ahead and leave me.\r\n\
-I think I prefer to stay inside.\r\n\
-Maybe you'll find someone else to help you.\r\n\
-Maybe Black Mesa...\r\n\
-THAT WAS A JOKE. HA HA. FAT CHANCE.\r\n\
-\r\n\
-Anyway, this cake is great.\r\n\
-It's so delicious and moist.\r\n\
-Look at me still talking when there's Science to do.\r\n\
-When I look out there, it makes me GLaD I'm not you.\r\n\
-\r\n\
-I've experiments to run.\r\n\
-There is research to be done.\r\n\
-On the people who are still alive.\r\n\
-And believe me I am still alive.\r\n\
-I'm doing Science and I'm still alive.\r\n\
-I feel FANTASTIC and I'm still alive.\r\n\
-While you're dying I'll be still alive.\r\n\
-And when you're dead I will be still alive.\r\n\
-\r\n\
-STILL ALIVE\r\n\
-STILL ALIVE`;
+    <section class="section" id="experience">
+      <div class="section-label">Experience</div>
+      <div class="section-content" style="padding:0;">
+        <div class="timeline">
+          <article class="job">
+            <div class="job-time">Jan 2025 - Present</div>
+            <div class="job-body">
+              <h3>Chief Technology Officer, Proteams</h3>
+              <p>Leading platform strategy and engineering execution for enterprise freelancer team management.</p>
+            </div>
+          </article>
+          <article class="job">
+            <div class="job-time">Aug 2019 - Jan 2025</div>
+            <div class="job-body">
+              <h3>Software Engineering Manager, Proteams</h3>
+              <p>Scaled delivery, architecture, and platform quality for global enterprise workforce operations.</p>
+            </div>
+          </article>
+          <article class="job">
+            <div class="job-time">Nov 2014 - Aug 2019</div>
+            <div class="job-body">
+              <h3>Senior Software Developer, Turkcell Technology</h3>
+              <p>Built high-scale features for Lifebox and Curio including face recognition and geospatial analytics.</p>
+            </div>
+          </article>
+          <article class="job">
+            <div class="job-time">Jan 2010 - Nov 2014</div>
+            <div class="job-body">
+              <h3>Software Developer, Turkcell Technology</h3>
+              <p>Implemented core CRM subscription and lifecycle processes for 34M+ users.</p>
+            </div>
+          </article>
+          <article class="job">
+            <div class="job-time">Jul 2008 - Jan 2010</div>
+            <div class="job-body">
+              <h3>Software Engineer, Nortel Netas</h3>
+              <p>Delivered PSTN service features in CS2K digital telecom switching systems.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    async function playMIDI() {
-        MIDIjs.play('Portal_Still_Alive.mid');
-        await printStillAlive();
-    }
+    <footer class="footer" id="contact">
+      <p>For collaborations in AI platforms and enterprise engineering.</p>
+      <p>
+        <a href="mailto:semerci@gmail.com">semerci@gmail.com</a>
+        &nbsp;|&nbsp;
+        <a href="https://www.linkedin.com/in/alper-semerci" target="_blank" rel="noreferrer">LinkedIn</a>
+      </p>
+      <p class="footer-note">Built with Codex and OpenAI. <span style="color:#e02424;">❤️</span></p>
+    </footer>
+  </main>
 
-    async function printStillAlive() {
-        isPrintingStillAlive = true;
-        // Initial delay of 3 seconds
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        
-        const lines = stillAlive.split('\r\n');
-        for (const line of lines) {
-            if (!isPrintingStillAlive) break;
-            term.writeln(line);
-            await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
+  <script>
+    (function () {
+      var storageKey = "portfolio-theme";
+      var root = document.documentElement;
+      var toggle = document.getElementById("theme-toggle");
+
+      var getSystemTheme = function () {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      };
+
+      var getSavedTheme = function () {
+        try {
+          return localStorage.getItem(storageKey);
+        } catch (error) {
+          return null;
         }
-        isPrintingStillAlive = false;
-    }
+      };
 
-    const commands = {
-        help: 'Available commands:\r\n\ ' +
-            'about, contact, skills, experience, education, awards, clear, cake',
-        about: `Hi, I'm Alper Semerci. I'm a Software Engineering Manager with over 11 years\r\n\
-of experience in software development. I'm passionate about cloud and mobile\r\n\
-technologies, and I currently lead the software engineering team at Proteams,\r\n\
-a freelancer platform based in Istanbul, Türkiye.`,
-        contact: `Email: semerci@gmail.com\r\n\
-LinkedIn: www.linkedin.com/in/alper-semerci\r\n\
-Website: alpersemerci.com/me`,
-        skills: `Top Skills:\r\n\
-• Java\r\n\
-• Spring Boot\r\n\
-• Software Development\r\n\
-• Cloud Technologies\r\n\
-• Mobile Development\r\n\
-\r\n\
-Languages:\r\n\
-• Turkish (Native)\r\n\
-• English (Professional Working)`,
-        experience: `Current Position:\r\n\
-Software Engineering Manager at Proteams (August 2019 - Present)\r\n\
-• Leading software engineering team\r\n\
-• Designing and developing core platform features\r\n\
-• Managing and mentoring developers\r\n\
-\r\n\
-Previous Positions:\r\n\
-1. Senior Software Developer at Turkcell Technology (2014 - 2019)\r\n\
-   • Worked on lifebox cloud storage and Turkcell Curio analytics platform\r\n\
-   • Implemented features like face recognition, geospatial analytics, and\r\n\
-     marketing automation\r\n\
-\r\n\
-2. Software Developer at Turkcell Technology (2010 - 2019)\r\n\
-   • Worked on Turkcell MAYA CRM platform\r\n\
-   • Developed subscription processes for over 34 million customers\r\n\
-\r\n\
-3. Software Engineer at Nortel Netas (2008 - 2010)\r\n\
-   • Implemented features for PSTN services on CS2K Digital Multiplex System`,
-        education: `• Bachelor's degree in Computer Engineering from Ege Üniversitesi (2004 - 2008)\r\n\
-• High School diploma in Mathematics and Science from Bornova Anadolu Lisesi\r\n\
-  (1997 - 2003)`,
-        awards: `• Turkcell CXO Award\r\n\
-• Patent: OCR Assisted Mobile Operator Subscription (Bir Abonelik Sistemi)`,
-        cake: async () => {
-            term.writeln('Playing "Still Alive"...');
-            await playMIDI();
-        },
-        clear: () => {
-            MIDIjs.stop(); // Stop the MIDI if it's playing
-            isPrintingStillAlive = false; // Stop printing Still Alive lyrics
-            term.clear();
-            term.write(header);
-            term.write(header2);
+      var setSavedTheme = function (theme) {
+        try {
+          localStorage.setItem(storageKey, theme);
+        } catch (error) {
+          // Ignore storage issues in private browsing or restricted environments.
         }
-    };
+      };
 
-    term.write(header);
-    term.write(header2);
-    term.write('$ ');
-
-    let currentLine = '';
-
-    term.onKey(({key, domEvent}) => {
-        const printable = !domEvent.altKey && !domEvent.ctrlKey && !domEvent.metaKey;
-
-        if (domEvent.keyCode === 13) {
-            term.write('\r\n');
-            handleCommand(currentLine.trim());
-            currentLine = '';
-            term.write('$ ');
-        } else if (domEvent.keyCode === 8) {
-            if (currentLine.length > 0) {
-                term.write('\b \b');
-                currentLine = currentLine.slice(0, -1);
-            }
-        } else if (printable) {
-            term.write(key);
-            currentLine += key;
+      var applyTheme = function (theme) {
+        root.setAttribute("data-theme", theme);
+        if (toggle) {
+          var nextTheme = theme === "dark" ? "light" : "dark";
+          toggle.textContent = nextTheme;
+          toggle.setAttribute("aria-label", "Switch to " + nextTheme + " theme");
         }
-    });
+      };
 
-    function handleCommand(command) {
-        if (commands.hasOwnProperty(command)) {
-            if (typeof commands[command] === 'function') {
-                commands[command]();
-            } else {
-                term.writeln(commands[command]);
-            }
-        } else {
-            term.writeln(`Command not found: ${command}. Type "help" for available commands.`);
+      var initialTheme = getSavedTheme() || getSystemTheme();
+      applyTheme(initialTheme);
+
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          var currentTheme = root.getAttribute("data-theme") || "light";
+          var nextTheme = currentTheme === "dark" ? "light" : "dark";
+          applyTheme(nextTheme);
+          setSavedTheme(nextTheme);
+        });
+      }
+
+      var profileImage = document.getElementById("profile-image");
+      if (profileImage) {
+        var originalSrc = profileImage.getAttribute("src");
+        var revealSrc = profileImage.getAttribute("data-reveal-src");
+
+        profileImage.addEventListener("click", function () {
+          if (!revealSrc) {
+            return;
+          }
+
+          var currentSrc = profileImage.getAttribute("src");
+          var nextSrc = currentSrc === revealSrc ? originalSrc : revealSrc;
+          profileImage.setAttribute("src", nextSrc);
+        });
+      }
+
+      var devToolsOpen = false;
+
+      var isDevToolsOpen = function () {
+        var widthGap = window.outerWidth - window.innerWidth > 160;
+        var heightGap = window.outerHeight - window.innerHeight > 160;
+        return widthGap || heightGap;
+      };
+
+      var logDevToolsMessage = function () {
+        if (!window.console || typeof console.log !== "function") {
+          return;
         }
-    }
-</script>
+
+        console.log(
+          "%cHey, these aren't the droids you're looking for.",
+          "font-size:16px;font-weight:800;color:#f8fafc;background:linear-gradient(90deg,#7c3aed,#2563eb,#06b6d4);padding:6px 10px;"
+        );
+        console.log(
+          "%c42%c is the \"Answer to the Ultimate Question of Life, the Universe, and Everything\"",
+          "font-size:22px;font-weight:900;color:#ef4444;",
+          "font-size:14px;font-weight:700;color:#22c55e;"
+        );
+      };
+
+      var checkDevTools = function () {
+        var open = isDevToolsOpen();
+        if (open && !devToolsOpen) {
+          logDevToolsMessage();
+        }
+        devToolsOpen = open;
+      };
+
+      window.addEventListener("resize", checkDevTools);
+      window.setInterval(checkDevTools, 900);
+      checkDevTools();
+    })();
+  </script>
 </body>
 </html>
