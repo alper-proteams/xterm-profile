@@ -293,7 +293,20 @@
 
     .timeline {
       border-top: 1px solid var(--line);
+      position: relative;
       transition: border-color 0.25s ease;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 230px;
+      width: 1px;
+      background: var(--line);
+      pointer-events: none;
+      transition: background-color 0.25s ease;
     }
 
     .job {
@@ -304,7 +317,6 @@
     }
 
     .job-time {
-      border-right: 1px solid var(--line);
       padding: 16px;
       font-size: 0.85rem;
       color: var(--muted);
@@ -389,6 +401,10 @@
 
       .job {
         grid-template-columns: 1fr;
+      }
+
+      .timeline::before {
+        display: none;
       }
 
       .job-time {
