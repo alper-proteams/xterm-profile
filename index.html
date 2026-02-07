@@ -91,6 +91,12 @@
       justify-content: flex-end;
     }
 
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .nav {
       display: flex;
       gap: 12px;
@@ -436,6 +442,53 @@
         max-width: 10ch;
       }
     }
+
+    @media print {
+      :root,
+      html[data-theme="dark"] {
+        --bg: #ffffff;
+        --ink: #000000;
+        --muted: #2b2f33;
+        --line: #000000;
+        --panel: #ffffff;
+        --photo-bg: #ffffff;
+      }
+
+      body {
+        padding: 0;
+        background: #ffffff;
+      }
+
+      .site {
+        max-width: none;
+        border: 0;
+        background: #ffffff;
+      }
+
+      .topbar-right {
+        display: none;
+      }
+
+      .section {
+        break-inside: avoid-page;
+        page-break-inside: avoid;
+      }
+
+      .section-label {
+        break-after: avoid-page;
+        page-break-after: avoid;
+      }
+
+      .section-content {
+        break-before: avoid-page;
+        page-break-before: avoid;
+      }
+
+      #about {
+        break-before: page;
+        page-break-before: always;
+      }
+    }
   </style>
 </head>
 <body>
@@ -449,7 +502,10 @@
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">Dark</button>
+        <div class="topbar-actions">
+          <button id="pdf-download" class="theme-toggle" type="button" aria-label="Download portfolio as PDF">PDF</button>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">Dark</button>
+        </div>
       </div>
     </header>
 
@@ -564,6 +620,7 @@
       var storageKey = "portfolio-theme";
       var root = document.documentElement;
       var toggle = document.getElementById("theme-toggle");
+      var pdfDownload = document.getElementById("pdf-download");
 
       var getSystemTheme = function () {
         return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -603,6 +660,17 @@
           var nextTheme = currentTheme === "dark" ? "light" : "dark";
           applyTheme(nextTheme);
           setSavedTheme(nextTheme);
+        });
+      }
+
+      if (pdfDownload) {
+        pdfDownload.addEventListener("click", function () {
+          var originalTitle = document.title;
+          document.title = "Alper-Semerci-Portfolio";
+          window.print();
+          window.setTimeout(function () {
+            document.title = originalTitle;
+          }, 250);
         });
       }
 
