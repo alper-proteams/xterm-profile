@@ -298,8 +298,7 @@
     }
 
     .timeline {
-      border-top: 1px solid var(--line);
-      transition: border-color 0.25s ease;
+      transition: color 0.25s ease;
     }
 
     .job {
@@ -323,6 +322,11 @@
       border-bottom: 1px solid var(--line);
       padding: 16px;
       transition: border-color 0.25s ease;
+    }
+
+    .job:last-child .job-time,
+    .job:last-child .job-body {
+      border-bottom: 0;
     }
 
     .job-body h3 {
