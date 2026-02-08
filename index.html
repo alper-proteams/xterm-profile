@@ -299,30 +299,18 @@
 
     .timeline {
       border-top: 1px solid var(--line);
-      position: relative;
       transition: border-color 0.25s ease;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 230px;
-      width: 1px;
-      background: var(--line);
-      pointer-events: none;
-      transition: background-color 0.25s ease;
     }
 
     .job {
       display: grid;
       grid-template-columns: 230px 1fr;
-      border-bottom: 1px solid var(--line);
-      transition: border-color 0.25s ease;
+      transition: color 0.25s ease;
     }
 
     .job-time {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       padding: 16px;
       font-size: 0.85rem;
       color: var(--muted);
@@ -332,7 +320,9 @@
     }
 
     .job-body {
+      border-bottom: 1px solid var(--line);
       padding: 16px;
+      transition: border-color 0.25s ease;
     }
 
     .job-body h3 {
@@ -407,10 +397,6 @@
 
       .job {
         grid-template-columns: 1fr;
-      }
-
-      .timeline::before {
-        display: none;
       }
 
       .job-time {
