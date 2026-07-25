@@ -16,6 +16,9 @@ This project is a static HTML/CSS/JS portfolio focused on a clean editorial layo
 - Click-to-toggle profile photo reveal
   - Starts with `2F1B37AD4236.PNG`
   - Toggles to `1689332889717.jpg` when clicked
+- Two indexable case studies with shared responsive styling
+  - Reliable enterprise AI search for regulated knowledge
+  - AI-powered media discovery for Lifebox
 - Responsive design for desktop and mobile
 - DevTools easter egg
   - Prints colorful console messages when DevTools is detected open
@@ -23,6 +26,10 @@ This project is a static HTML/CSS/JS portfolio focused on a clean editorial layo
 ## Project Structure
 
 - `index.html`: Entire site (HTML, CSS, JS in one file)
+- `case-studies/reliable-enterprise-ai-search/index.html`: Enterprise AI search case study
+- `case-studies/ai-media-discovery/index.html`: Lifebox media discovery case study
+- `case-studies/case-study.css`: Shared case-study layout and responsive styles
+- `case-studies/case-study.js`: Shared case-study theme behavior
 - `2F1B37AD4236.PNG`: Primary profile image
 - `1689332889717.jpg`: Alternate/reveal profile image
 

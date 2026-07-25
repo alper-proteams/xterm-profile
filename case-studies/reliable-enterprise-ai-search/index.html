@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reliable Enterprise AI Search Case Study | Alper Semerci</title>
+  <meta name="description" content="How Alper Semerci approaches reliable enterprise AI search for regulated knowledge using structured data, semantic retrieval, RAG, and verification." />
+  <meta name="author" content="Alper Semerci" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="theme-color" content="#efeee8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1d21" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://alpersemerci.com/case-studies/reliable-enterprise-ai-search/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Alper Semerci" />
+  <meta property="og:title" content="Reliable Enterprise AI Search | Case Study" />
+  <meta property="og:description" content="A practical model for grounding enterprise AI in regulated knowledge, source provenance, and human verification." />
+  <meta property="og:url" content="https://alpersemerci.com/case-studies/reliable-enterprise-ai-search/" />
+  <meta property="og:image" content="https://alpersemerci.com/alper-semerci-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Alper Semerci — CTO and AI Platform Engineering Leader" />
+  <meta property="article:author" content="Alper Semerci" />
+  <meta property="article:published_time" content="2026-07-25" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reliable Enterprise AI Search | Case Study" />
+  <meta name="twitter:description" content="A practical model for grounding enterprise AI in regulated knowledge, source provenance, and human verification." />
+  <meta name="twitter:image" content="https://alpersemerci.com/alper-semerci-og.jpg" />
+  <meta name="twitter:image:alt" content="Alper Semerci — CTO and AI Platform Engineering Leader" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://alpersemerci.com/case-studies/reliable-enterprise-ai-search/#article",
+          "url": "https://alpersemerci.com/case-studies/reliable-enterprise-ai-search/",
+          "headline": "Building Reliable Enterprise AI Search for Regulated Knowledge",
+          "description": "How Alper Semerci approaches reliable enterprise AI search for regulated knowledge using structured data, semantic retrieval, retrieval-augmented generation, and verification.",
+          "datePublished": "2026-07-25",
+          "dateModified": "2026-07-25",
+          "inLanguage": "en",
+          "image": "https://alpersemerci.com/alper-semerci-og.jpg",
+          "author": {
+            "@type": "Person",
+            "@id": "https://alpersemerci.com/#person",
+            "name": "Alper Semerci",
+            "url": "https://alpersemerci.com/"
+          },
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://alpersemerci.com/#website",
+            "name": "Alper Semerci",
+            "url": "https://alpersemerci.com/"
+          },
+          "about": [
+            "Enterprise AI search",
+            "Retrieval-augmented generation",
+            "Knowledge graphs",
+            "AI verification",
+            "Regulated enterprise systems"
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://alpersemerci.com/case-studies/reliable-enterprise-ai-search/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://alpersemerci.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Reliable Enterprise AI Search",
+              "item": "https://alpersemerci.com/case-studies/reliable-enterprise-ai-search/"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../case-study.css" />
+</head>
+<body>
+  <article class="case-shell">
+    <header class="case-topbar">
+      <a class="case-brand" href="../../">Alper Semerci</a>
+      <nav class="case-nav" aria-label="Case study navigation">
+        <a href="../../#case-studies">Case studies</a>
+        <a href="../../#experience">Experience</a>
+        <a href="../../#contact">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">Dark</button>
+      </nav>
+    </header>
+
+    <main>
+      <header class="case-hero">
+        <p class="case-kicker">Case Study 01 · Enterprise AI</p>
+        <h1>Building reliable enterprise AI search for regulated knowledge.</h1>
+        <p class="case-lede">
+          A practical approach to making fragmented scientific, policy, and regulatory knowledge searchable
+          without treating a language model as an unquestioned source of truth.
+        </p>
+      </header>
+
+      <dl class="case-facts">
+        <div class="case-fact">
+          <dt>Role</dt>
+          <dd>CTO and technical leadership</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Context</dt>
+          <dd>Pharma and consumer-health initiatives</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Focus</dt>
+          <dd>Knowledge search, RAG, and verification</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Public record</dt>
+          <dd>Proteams interview, September 2025</dd>
+        </div>
+      </dl>
+
+      <section class="case-section" aria-labelledby="context-title">
+        <h2 class="case-section-label" id="context-title">Context</h2>
+        <div class="case-copy">
+          <h2>Knowledge was available, but not reliably usable.</h2>
+          <p>
+            Regulated enterprises hold valuable knowledge across document repositories, policy-management tools,
+            regulatory databases, research files, and medical data. The operational problem is not simply storing
+            this information. It is helping specialists retrieve the right evidence quickly while preserving the
+            context required to trust an answer.
+          </p>
+          <p>
+            A generic chatbot is a poor fit for that environment. In compliance, research, and clinical workflows,
+            a confident but unsupported answer can be more damaging than no answer at all. The system therefore
+            needs to ground every useful response in controlled enterprise knowledge and make verification part of
+            the product experience.
+          </p>
+          <aside class="confidentiality-note">
+            This case study uses only publicly shared information. Client identities, proprietary architecture,
+            security controls, integrations, and delivery metrics are intentionally generalized or omitted.
+          </aside>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="model-title">
+        <h2 class="case-section-label" id="model-title">System model</h2>
+        <div class="case-copy">
+          <h2>Move from model-first thinking to evidence-first retrieval.</h2>
+          <p>
+            The public project account establishes a structured knowledge layer, semantic search,
+            retrieval-augmented generation, and connections to governed enterprise sources. The engineering model
+            below shows how those capabilities fit together when reliability is the primary product requirement.
+          </p>
+
+          <div class="flow" role="img" aria-label="Enterprise knowledge flows from governed sources through a structured knowledge layer and semantic retrieval to an evidence-backed answer and human verification.">
+            <div class="flow-step">
+              <span class="flow-index">01</span>
+              <strong>Governed sources</strong>
+              <span>Documents, policies, regulatory databases, and research data.</span>
+            </div>
+            <div class="flow-step">
+              <span class="flow-index">02</span>
+              <strong>Knowledge layer</strong>
+              <span>Normalized content, metadata, relationships, and access context.</span>
+            </div>
+            <div class="flow-step">
+              <span class="flow-index">03</span>
+              <strong>Semantic retrieval</strong>
+              <span>Search and RAG select evidence relevant to the user’s question.</span>
+            </div>
+            <div class="flow-step">
+              <span class="flow-index">04</span>
+              <strong>Grounded response</strong>
+              <span>The answer is composed from retrieved enterprise material.</span>
+            </div>
+            <div class="flow-step">
+              <span class="flow-index">05</span>
+              <strong>Verification</strong>
+              <span>Users review supporting evidence before consequential action.</span>
+            </div>
+          </div>
+          <p class="flow-caption">
+            Architecture model based on the publicly described capabilities; implementation details remain confidential.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="decisions-title">
+        <h2 class="case-section-label" id="decisions-title">Engineering principles</h2>
+        <div class="case-copy">
+          <h2>Reliability comes from the whole system, not the model alone.</h2>
+          <p>
+            For this class of enterprise AI product, model quality is only one component. Source governance,
+            retrieval quality, product boundaries, and operational oversight determine whether the system is useful
+            in practice.
+          </p>
+
+          <div class="decision-grid">
+            <article class="decision">
+              <span>01 · Grounding</span>
+              <h3>Make enterprise evidence the primary authority.</h3>
+              <p>
+                Responses should be assembled from relevant controlled material rather than unsupported model memory.
+              </p>
+            </article>
+            <article class="decision">
+              <span>02 · Structure</span>
+              <h3>Preserve relationships and context.</h3>
+              <p>
+                A structured knowledge layer helps connect documents, policies, entities, and technical terminology.
+              </p>
+            </article>
+            <article class="decision">
+              <span>03 · Boundaries</span>
+              <h3>Treat uncertainty as a product state.</h3>
+              <p>
+                When available evidence is insufficient, the safe outcome is escalation or clarification—not invention.
+              </p>
+            </article>
+            <article class="decision">
+              <span>04 · Oversight</span>
+              <h3>Keep experts in consequential workflows.</h3>
+              <p>
+                Verification and review remain essential where an answer can affect compliance, research, or care.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="outcomes-title">
+        <h2 class="case-section-label" id="outcomes-title">Outcome</h2>
+        <div class="case-copy">
+          <h2>Faster access without giving up traceability.</h2>
+          <p>
+            The resulting capability connects siloed knowledge and gives specialists a natural-language route into
+            technical documentation, trial information, policies, and regulatory material. The intended value is
+            not autonomous decision-making. It is reducing the time between a question and a reviewable body of
+            evidence.
+          </p>
+
+          <div class="outcome-grid">
+            <div class="outcome">
+              <strong>Connected knowledge</strong>
+              <span>Previously separated enterprise sources become searchable through one experience.</span>
+            </div>
+            <div class="outcome">
+              <strong>Evidence-led answers</strong>
+              <span>Retrieval and structured context support responses users can inspect.</span>
+            </div>
+            <div class="outcome">
+              <strong>Operational trust</strong>
+              <span>Verification is designed into the workflow instead of added after deployment.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="leadership-title">
+        <h2 class="case-section-label" id="leadership-title">Leadership takeaway</h2>
+        <div class="case-copy">
+          <h2>Define the business decision before selecting the AI capability.</h2>
+          <p>
+            Enterprise AI programs improve when the objective is explicit: research exploration, operational
+            assistance, compliance support, or process improvement. That clarity determines the right expertise,
+            evaluation criteria, data boundaries, and level of human oversight.
+          </p>
+          <p>
+            The enduring lesson is that trustworthy AI is an operating model. It combines technical architecture
+            with domain expertise, clear accountability, and disciplined verification.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="sources-title">
+        <h2 class="case-section-label" id="sources-title">Public sources</h2>
+        <div class="case-copy">
+          <h2>Evidence behind this summary.</h2>
+          <p>
+            The project context and described capabilities are summarized from the following public Proteams
+            interview. All additional implementation detail has been intentionally bounded to engineering principles.
+          </p>
+          <ul class="source-list">
+            <li>
+              <a href="https://proteams.com/blog/how-can-specialized-external-talent-accelerate-your-ai-ml-projects/" target="_blank" rel="noopener noreferrer">
+                Proteams — How Can Specialized External Talent Accelerate Your AI/ML Projects?
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer">
+      <a href="../../#case-studies">
+        <span>Back</span>
+        <strong>All case studies</strong>
+      </a>
+      <a href="../ai-media-discovery/">
+        <span>Next case study</span>
+        <strong>AI-powered media discovery →</strong>
+      </a>
+    </footer>
+  </article>
+
+  <script src="../case-study.js"></script>
+</body>
+</html>
