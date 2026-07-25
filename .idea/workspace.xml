@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="14da08f0-3160-4b6c-aaf4-e3c7ca277262" name="Changes" comment="feat: Enhance portfolio metadata and add structured data for better SEO" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/alper/Dev/GitHubProjects/xterm-profile" value="39J8PPUjxBWIH5deaJ57QH8RuPY" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alper-proteams&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/alper-proteams/xterm-profile.git",
+    "accountId": "d89869fb-23b1-491c-acf6-60d77e198d4a"
+  }
+}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="39J8PPUjxBWIH5deaJ57QH8RuPY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/alper/Dev/GitHubProjects/xterm-profile",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14da08f0-3160-4b6c-aaf4-e3c7ca277262" name="Changes" comment="" />
+      <created>1770402789200</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1770402789200</updated>
+      <workItem from="1770402791153" duration="224000" />
+      <workItem from="1770508216939" duration="2899000" />
+      <workItem from="1770579856018" duration="931000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat: Add initial personal portfolio site with responsive design and theme toggle">
+      <option name="closed" value="true" />
+      <created>1770402998762</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770402998763</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: Enhance timeline styling with improved border and layout adjustments">
+      <option name="closed" value="true" />
+      <created>1770508239211</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770508239211</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: Add PDF download button and enhance print styles for better layout">
+      <option name="closed" value="true" />
+      <created>1770508654765</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770508654765</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactor: Simplify timeline layout and enhance job section styling">
+      <option name="closed" value="true" />
+      <created>1770509098661</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1770509098661</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor: Update timeline transition and adjust job section styling">
+      <option name="closed" value="true" />
+      <created>1770509634756</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1770509634756</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: Enhance portfolio metadata and add structured data for better SEO">
+      <option name="closed" value="true" />
+      <created>1770509901033</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1770509901033</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Add initial personal portfolio site with responsive design and theme toggle" />
+    <MESSAGE value="feat: Enhance timeline styling with improved border and layout adjustments" />
+    <MESSAGE value="feat: Add PDF download button and enhance print styles for better layout" />
+    <MESSAGE value="refactor: Simplify timeline layout and enhance job section styling" />
+    <MESSAGE value="refactor: Update timeline transition and adjust job section styling" />
+    <MESSAGE value="feat: Enhance portfolio metadata and add structured data for better SEO" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Enhance portfolio metadata and add structured data for better SEO" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

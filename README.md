@@ -54,6 +54,18 @@ Because this is static, you can deploy to:
 
 Upload all files in this folder and use `index.html` as the entry point.
 
+### Canonical domain and `www` redirect
+
+The repository's `CNAME` file keeps `https://alpersemerci.com/` as the canonical GitHub Pages domain.
+To make `https://www.alpersemerci.com/` redirect to the canonical apex domain, add this DNS record with the domain provider:
+
+| Type | Host | Value |
+| --- | --- | --- |
+| `CNAME` | `www` | `alper-proteams.github.io` |
+
+Point the `www` record directly to the GitHub Pages default domain, not to `alpersemerci.com`.
+Once DNS has propagated and GitHub Pages has provisioned HTTPS for both hosts, GitHub Pages automatically redirects `www` to the apex domain.
+
 ## Credits
 
 Built with Codex and OpenAI.
