@@ -1,0 +1,112 @@
+.analytics-consent {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  width: min(720px, calc(100vw - 32px));
+  padding: 20px;
+  border: 1px solid var(--line, #101214);
+  background: var(--bg, #efeee8);
+  color: var(--ink, #101214);
+  box-shadow: 8px 8px 0 rgba(16, 18, 20, 0.16);
+  font-family: "IBM Plex Sans", sans-serif;
+  line-height: 1.5;
+}
+
+.analytics-consent[hidden] {
+  display: none;
+}
+
+.analytics-consent__copy strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: "Sora", sans-serif;
+  font-size: 0.92rem;
+}
+
+.analytics-consent__copy p {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--muted, #43484f);
+  font-size: 0.86rem;
+}
+
+.analytics-consent__copy a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+.analytics-consent__status:empty {
+  display: none;
+}
+
+.analytics-consent__status {
+  margin-top: 7px !important;
+  font-weight: 600;
+}
+
+.analytics-consent__actions {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  min-width: 150px;
+}
+
+.analytics-consent__actions button,
+.analytics-settings {
+  border: 1px solid var(--line, #101214);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.analytics-consent__actions button {
+  min-height: 42px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.analytics-consent__actions button:hover,
+.analytics-consent__actions button:focus-visible,
+.analytics-settings:hover,
+.analytics-settings:focus-visible {
+  background: var(--ink, #101214);
+  color: var(--bg, #efeee8);
+}
+
+.analytics-consent__actions button:focus-visible,
+.analytics-settings:focus-visible {
+  outline: 3px solid var(--accent, #716b3c);
+  outline-offset: 2px;
+}
+
+.analytics-settings {
+  padding: 0;
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 680px) {
+  .analytics-consent {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .analytics-consent__actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media print {
+  .analytics-consent,
+  .analytics-settings,
+  .privacy-link {
+    display: none !important;
+  }
+}

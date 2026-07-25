@@ -121,6 +121,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="analytics.css" />
   <style>
     :root {
       color-scheme: light;
@@ -804,7 +805,7 @@
               Structuring fragmented enterprise sources for semantic retrieval, grounded responses, and human verification.
             </p>
             <p class="case-card-meta">RAG · Knowledge graphs · AI governance</p>
-            <a class="case-card-link" href="case-studies/reliable-enterprise-ai-search/">
+            <a class="case-card-link" href="case-studies/reliable-enterprise-ai-search/" data-analytics-case-study="reliable-enterprise-ai-search">
               Read case study <span aria-hidden="true">→</span>
             </a>
           </article>
@@ -815,7 +816,7 @@
               Making personal cloud archives searchable through face, object, and location intelligence.
             </p>
             <p class="case-card-meta">Computer vision · Geospatial search · Lifebox</p>
-            <a class="case-card-link" href="case-studies/ai-media-discovery/">
+            <a class="case-card-link" href="case-studies/ai-media-discovery/" data-analytics-case-study="ai-media-discovery">
               Read case study <span aria-hidden="true">→</span>
             </a>
           </article>
@@ -897,10 +898,16 @@
         &nbsp;|&nbsp;
         <a href="https://github.com/alper-proteams" target="_blank" rel="me noopener noreferrer">GitHub</a>
       </p>
+      <p class="footer-note">
+        <a class="privacy-link" href="privacy/">Privacy</a>
+        &nbsp;|&nbsp;
+        <button class="analytics-settings" type="button" data-analytics-settings>Analytics settings</button>
+      </p>
       <p class="footer-note">Built with Codex and OpenAI. <span style="color:#e02424;">❤️</span></p>
     </footer>
   </main>
 
+  <script src="analytics.js"></script>
   <script>
     (function () {
       var storageKey = "portfolio-theme";

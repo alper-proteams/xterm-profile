@@ -382,6 +382,22 @@ a {
   grid-template-columns: 1fr 1fr;
 }
 
+.case-legal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.case-legal a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
 .case-footer a {
   min-height: 150px;
   padding: 28px var(--pad);

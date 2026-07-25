@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy and Analytics | Alper Semerci</title>
+  <meta name="description" content="How analytics consent and privacy choices work on Alper Semerci's portfolio." />
+  <meta name="author" content="Alper Semerci" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#efeee8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1d21" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://alpersemerci.com/privacy/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../case-studies/case-study.css" />
+  <link rel="stylesheet" href="../analytics.css" />
+</head>
+<body>
+  <article class="case-shell">
+    <header class="case-topbar">
+      <a class="case-brand" href="../">Alper Semerci</a>
+      <nav class="case-nav" aria-label="Privacy page navigation">
+        <a href="../#case-studies">Case studies</a>
+        <a href="../#contact">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">Dark</button>
+      </nav>
+    </header>
+
+    <main>
+      <header class="case-hero">
+        <p class="case-kicker">Privacy · Last updated July 25, 2026</p>
+        <h1>Privacy and analytics choices.</h1>
+        <p class="case-lede">
+          This portfolio uses privacy-first, consent-based analytics. Google Analytics does not load unless you
+          explicitly accept it.
+        </p>
+      </header>
+
+      <section class="case-section" aria-labelledby="collection-title">
+        <h2 class="case-section-label" id="collection-title">Collection</h2>
+        <div class="case-copy">
+          <h2>What is measured after consent.</h2>
+          <p>
+            With your permission, Google Analytics 4 measures page views, scroll and engagement activity, outbound
+            link clicks, case-study selections, use of the portfolio print control, and clicks on the email contact
+            link. Email addresses, names, message contents, and URL query strings are not sent as custom event data.
+          </p>
+          <p>
+            Analytics may process technical information such as browser and device type, approximate location,
+            referring page, and the pages visited. This information is used only to understand portfolio performance
+            and improve the usefulness of its content.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="consent-title">
+        <h2 class="case-section-label" id="consent-title">Consent</h2>
+        <div class="case-copy">
+          <h2>You control whether analytics loads.</h2>
+          <p>
+            Before a choice is made, no request is sent to Google Analytics or Google Tag Manager. Your choice is
+            stored in your browser under <code>portfolio-analytics-consent</code> so it can be respected on later
+            visits.
+          </p>
+          <p>
+            If you accept, Google Analytics may set first-party cookies beginning with <code>_ga</code>. If you
+            decline, analytics remains unloaded. Withdrawing previously granted consent stops analytics on the next
+            page load and removes those first-party analytics cookies where the browser permits it.
+          </p>
+          <p>
+            <button class="analytics-settings" type="button" data-analytics-settings>Review analytics settings</button>
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="configuration-title">
+        <h2 class="case-section-label" id="configuration-title">Configuration</h2>
+        <div class="case-copy">
+          <h2>Limited to portfolio measurement.</h2>
+          <p>
+            Google Signals and advertising personalization are disabled. Analytics is not used for advertising,
+            remarketing, ecommerce, account profiling, or cross-domain tracking. Event-level data retention is set
+            to 14 months.
+          </p>
+          <p>
+            Analytics information is processed by Google under its
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+            This portfolio’s Search Console data concerns how pages appear in Google Search and is not used to track
+            individual on-site behavior.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="contact-title">
+        <h2 class="case-section-label" id="contact-title">Contact</h2>
+        <div class="case-copy">
+          <h2>Questions or privacy requests.</h2>
+          <p>
+            For questions about this notice or requests concerning portfolio analytics, email
+            <a href="mailto:semerci@gmail.com">semerci@gmail.com</a>.
+          </p>
+          <p class="confidentiality-note">
+            This page describes the portfolio’s technical analytics behavior. It is not jurisdiction-specific legal
+            advice or a substitute for professional privacy review.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer">
+      <a href="../">
+        <span>Back</span>
+        <strong>Portfolio home</strong>
+      </a>
+      <a href="../#contact">
+        <span>Contact</span>
+        <strong>Discuss AI platforms →</strong>
+      </a>
+    </footer>
+    <div class="case-legal">
+      <span>Privacy</span>
+      <span aria-hidden="true">·</span>
+      <button class="analytics-settings" type="button" data-analytics-settings>Analytics settings</button>
+    </div>
+  </article>
+
+  <script src="../case-studies/case-study.js"></script>
+  <script src="../analytics.js"></script>
+</body>
+</html>
