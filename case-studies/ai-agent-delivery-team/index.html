@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Agent Delivery Team Case Study | Alper Semerci</title>
+  <meta name="description" content="How Alper Semerci built a six-role AI agent team that plans, implements, reviews, and tests product issues end to end, with guardrails, human decisions, and delivery analytics." />
+  <meta name="author" content="Alper Semerci" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="theme-color" content="#efeee8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1d21" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://alpersemerci.com/case-studies/ai-agent-delivery-team/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Alper Semerci" />
+  <meta property="og:title" content="An AI Agent Team That Ships Issues End to End | Case Study" />
+  <meta property="og:description" content="Six AI workers, seven delivery stages, and a week of analytics that showed where the time really goes: builds and decisions, not the agents." />
+  <meta property="og:url" content="https://alpersemerci.com/case-studies/ai-agent-delivery-team/" />
+  <meta property="og:image" content="https://alpersemerci.com/case-studies/ai-agent-delivery-team/og.jpg" />
+  <meta property="og:image:secure_url" content="https://alpersemerci.com/case-studies/ai-agent-delivery-team/og.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Brix, the builder beaver mascot, beside the seven-stage workflow of an AI agent delivery team" />
+  <meta property="article:author" content="Alper Semerci" />
+  <meta property="article:published_time" content="2026-11-20" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="An AI Agent Team That Ships Issues End to End | Case Study" />
+  <meta name="twitter:description" content="Six AI workers, seven delivery stages, and a week of analytics that showed where the time really goes: builds and decisions, not the agents." />
+  <meta name="twitter:image" content="https://alpersemerci.com/case-studies/ai-agent-delivery-team/og.jpg" />
+  <meta name="twitter:image:alt" content="Brix, the builder beaver mascot, beside the seven-stage workflow of an AI agent delivery team" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://alpersemerci.com/case-studies/ai-agent-delivery-team/#article",
+          "url": "https://alpersemerci.com/case-studies/ai-agent-delivery-team/",
+          "headline": "Building an AI Agent Team That Ships Issues End to End",
+          "description": "How Alper Semerci built a six-role AI agent team that plans, implements, reviews, and tests product issues end to end, with guardrails, human decisions, and delivery analytics.",
+          "datePublished": "2026-11-20",
+          "dateModified": "2026-11-20",
+          "inLanguage": "en",
+          "image": "https://alpersemerci.com/case-studies/ai-agent-delivery-team/og.jpg",
+          "author": {
+            "@type": "Person",
+            "@id": "https://alpersemerci.com/#person",
+            "name": "Alper Semerci",
+            "url": "https://alpersemerci.com/"
+          },
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://alpersemerci.com/#website",
+            "name": "Alper Semerci",
+            "url": "https://alpersemerci.com/"
+          },
+          "about": [
+            "AI agents",
+            "Multi-agent systems",
+            "Software delivery automation",
+            "AI guardrails",
+            "Engineering analytics"
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://alpersemerci.com/case-studies/ai-agent-delivery-team/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://alpersemerci.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "AI Agent Delivery Team",
+              "item": "https://alpersemerci.com/case-studies/ai-agent-delivery-team/"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../case-study.css" />
+  <link rel="stylesheet" href="../../analytics.css" />
+</head>
+<body>
+  <article class="case-shell">
+    <header class="case-topbar">
+      <a class="case-brand" href="../../">Alper Semerci</a>
+      <nav class="case-nav" aria-label="Case study navigation">
+        <a href="../../#case-studies">Case studies</a>
+        <a href="../../#experience">Experience</a>
+        <a href="../../#contact">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">Dark</button>
+      </nav>
+    </header>
+
+    <main>
+      <header class="case-hero case-hero-split">
+        <div>
+          <p class="case-kicker">Case Study 03 · Agentic Engineering</p>
+          <h1>Building an AI agent team that ships issues end to end.</h1>
+          <p class="case-lede">
+            How I designed a six-role team of AI workers that plans, designs, implements, reviews, and tests
+            real product issues, and what a week of its own analytics showed about where delivery time goes.
+          </p>
+        </div>
+        <img
+          class="case-mascot"
+          src="brix.webp"
+          width="256"
+          height="240"
+          decoding="async"
+          alt="Brix, a cartoon beaver in a navy hoodie holding a blue block, the mascot of the agent team dashboard"
+        />
+      </header>
+
+      <dl class="case-facts">
+        <div class="case-fact">
+          <dt>Role</dt>
+          <dd>CTO; designed and built the system</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Context</dt>
+          <dd>Product engineering at Proteams</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Focus</dt>
+          <dd>Multi-agent delivery, guardrails, and observability</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Evidence</dt>
+          <dd>Live dashboard captures, 13–19 November 2026</dd>
+        </div>
+      </dl>
+
+      <section class="case-section" aria-labelledby="context-title">
+        <h2 class="case-section-label" id="context-title">Context</h2>
+        <div class="case-copy">
+          <h2>An agent can write a change. Delivery is everything around it.</h2>
+          <p>
+            Getting a model to produce a plausible diff is no longer the hard part. A change only counts once it
+            has been planned against the real requirement, reviewed by someone who did not write it, merged at
+            the commit that was reviewed, deployed to a test environment, and checked in a browser by someone
+            acting as the user. That chain is where an engineering team spends most of its discipline, and it is
+            the part a single agent in a terminal does not cover.
+          </p>
+          <p>
+            The agent team is my answer to that for our own product work. One person, the owner, adds an issue
+            link to a queue. Six AI workers take the issue from a plan to a production-ready handover. The owner
+            is asked only for the decisions that are really theirs: product trade-offs, accepted risks, and
+            access the team cannot get on its own.
+          </p>
+          <figure class="case-figure case-figure-scroll">
+            <a class="case-figure-frame" href="brix-card-building.webp">
+              <img
+                src="brix-card-building.webp"
+                width="1984"
+                height="348"
+                loading="lazy"
+                decoding="async"
+                alt="Dashboard card reading: Brix, Builder. 6 of 12 blocks stacked this week, one for each issue completed in 7 days. Status: Building. Complete one more issue to stack the next block."
+              />
+            </a>
+            <figcaption>
+              The dashboard's overview card. Brix stacks one block for each issue the team completed in the last
+              seven days.
+            </figcaption>
+          </figure>
+          <aside class="confidentiality-note">
+            This case study describes the design of the system and uses cropped captures of its dashboard.
+            Issue content, repository and environment names, client information, security configuration, and
+            model or vendor details are intentionally left out. The figures come from one week of real use, not
+            from a benchmark.
+          </aside>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="team-title">
+        <h2 class="case-section-label" id="team-title">Team model</h2>
+        <div class="case-copy">
+          <h2>Six workers, each with a narrow job and narrower permissions.</h2>
+          <p>
+            The team splits responsibility the way a careful human team does. The role names matter less than
+            what each role is not allowed to do.
+          </p>
+
+          <div class="decision-grid">
+            <article class="decision">
+              <span>01 · Lead</span>
+              <h3>Plans, and never writes code.</h3>
+              <p>
+                Owns the plan, the contract between backend and frontend, the merge order, and the test duties.
+                Every decision is recorded with its reason.
+              </p>
+            </article>
+            <article class="decision">
+              <span>02 · UX/UI</span>
+              <h3>Settles the interface before code exists.</h3>
+              <p>
+                Writes an implementation-ready specification before the plan is approved, then checks the
+                finished interface after QA.
+              </p>
+            </article>
+            <article class="decision">
+              <span>03 · Backend</span>
+              <h3>Implements in one repository.</h3>
+              <p>
+                One branch and one merge request per change. It publishes its work and stops; it never starts a
+                build and never merges.
+              </p>
+            </article>
+            <article class="decision">
+              <span>04 · Frontend</span>
+              <h3>Builds against the agreed contract.</h3>
+              <p>
+                Works under the same rules as the backend worker and treats the other repository as read-only
+                reference.
+              </p>
+            </article>
+            <article class="decision">
+              <span>05 · Review</span>
+              <h3>Is never the author.</h3>
+              <p>
+                Gets a read-only checkout of the exact commit and writes only structured findings. It cannot
+                change the code it reviews.
+              </p>
+            </article>
+            <article class="decision">
+              <span>06 · QA</span>
+              <h3>Tests like a user.</h3>
+              <p>
+                Works in prepared, signed-in test browser sessions and never sees a credential. A missing
+                sign-in is recorded as incomplete, never as a pass.
+              </p>
+            </article>
+          </div>
+
+          <figure class="case-figure case-figure-scroll">
+            <a class="case-figure-frame" href="team-workers.webp">
+              <img
+                src="team-workers.webp"
+                width="1984"
+                height="424"
+                loading="lazy"
+                decoding="async"
+                alt="Team workers panel listing Lead, UX/UI, Backend, Frontend, Review and QA. Frontend and Review are marked Working; the others are Idle."
+              />
+            </a>
+            <figcaption>The worker roster while two issues are in progress at once.</figcaption>
+          </figure>
+
+          <p>
+            Workers do not write to the issue tracker or the code host themselves. They return results in a
+            fixed format, and a controller checks and publishes them. The parts that only decide, such as
+            routing work or stating that a merge is intended, run without network access. The part that acts is
+            ordinary, tested code.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="workflow-title">
+        <h2 class="case-section-label" id="workflow-title">Workflow</h2>
+        <div class="case-copy">
+          <h2>Seven stages from an issue link to production-ready.</h2>
+          <p>
+            Every issue follows the same path, and the dashboard shows that path as a row of stage cards. A
+            stage that does not apply, such as backend work on an interface-only change, is marked not required
+            instead of being skipped silently.
+          </p>
+
+          <ol class="stage-list">
+            <li><strong>Lead</strong><span>Drafts the plan. The owner approves it, and the approved plan is locked for every later step.</span></li>
+            <li><strong>UX design</strong><span>Sized to the change, with upper bounds. Not needed for backend-only work.</span></li>
+            <li><strong>Backend</strong><span>Implements and publishes a merge request.</span></li>
+            <li><strong>Frontend</strong><span>Implements against the backend contract in the order the plan sets.</span></li>
+            <li><strong>Review</strong><span>An independent review after the build passes. Findings go back to the author, and a changed commit gets a fresh review.</span></li>
+            <li><strong>QA</strong><span>Acceptance testing in a browser once the merged change is confirmed on the test environment. A failed retest reopens the finding.</span></li>
+            <li><strong>UX acceptance</strong><span>The finished interface is checked against the approved design.</span></li>
+          </ol>
+
+          <figure class="case-figure case-figure-plain case-figure-scroll">
+            <a class="case-figure-frame" href="workflow-in-flight.webp">
+              <img
+                src="workflow-in-flight.webp"
+                width="2204"
+                height="648"
+                loading="lazy"
+                decoding="async"
+                alt="Seven stage cards for one issue. Lead finished with a QA fix plan, UX design finished, Backend merged, Frontend working for 12 minutes, Review waiting after fixes, QA fix in progress with a retest after deploy, UX acceptance not started."
+              />
+            </a>
+            <figcaption>
+              One issue in the middle of delivery. QA found a problem after deployment, the lead wrote a fix
+              plan, the frontend worker is fixing it, and review and QA are queued to run again.
+            </figcaption>
+          </figure>
+
+          <figure class="case-figure case-figure-plain case-figure-scroll">
+            <a class="case-figure-frame" href="workflow-complete.webp">
+              <img
+                src="workflow-complete.webp"
+                width="2204"
+                height="648"
+                loading="lazy"
+                decoding="async"
+                alt="Seven stage cards for a completed issue. Lead finished, UX design finished, Backend not required, Frontend merged, Review merged, QA approved, UX acceptance accepted by the owner."
+              />
+            </a>
+            <figcaption>
+              An interface-only issue after delivery: backend not required, QA approved, and the interface
+              accepted by the owner.
+            </figcaption>
+          </figure>
+
+          <p>
+            Between the stages sit gates that cannot be talked past. The build must pass on the exact commit
+            that will merge. The merge is pinned to the reviewed commit, so if the branch has moved, the merge
+            is refused. A green build is never treated as QA, and QA starts only after the deployment of that
+            commit has been confirmed.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="principles-title">
+        <h2 class="case-section-label" id="principles-title">Engineering principles</h2>
+        <div class="case-copy">
+          <h2>The model is the smallest part of the system.</h2>
+          <p>
+            Most of the engineering went into the controller around the workers. These are the rules that made
+            the team safe to leave running.
+          </p>
+
+          <div class="decision-grid">
+            <article class="decision">
+              <span>01 · Evidence</span>
+              <h3>Saved words are not facts.</h3>
+              <p>
+                A status line a worker wrote earlier cannot prove that anything is still running. Liveness comes
+                from the process, state comes from a fresh read, and every write is read back.
+              </p>
+            </article>
+            <article class="decision">
+              <span>02 · Decisions</span>
+              <h3>One function picks the next step.</h3>
+              <p>
+                The controller reads the saved evidence and the current facts, then decides. Steps go to an
+                append-only journal, so a crashed run resumes at the first unmet step instead of starting over.
+              </p>
+            </article>
+            <article class="decision">
+              <span>03 · Waiting</span>
+              <h3>A wait is not a failure.</h3>
+              <p>
+                A busy build queue, another writer on the same merge request, or a slow API are normal states.
+                The team looks again by itself and involves the owner only after a set time.
+              </p>
+            </article>
+            <article class="decision">
+              <span>04 · Limits</span>
+              <h3>Everything is bounded.</h3>
+              <p>
+                Review rounds, QA rounds, repairs, and retries all have ceilings. Token use per issue is capped
+                at twice the rolling weekly average; past that, the team stops and asks.
+              </p>
+            </article>
+            <article class="decision">
+              <span>05 · Isolation</span>
+              <h3>No ambient authority.</h3>
+              <p>
+                Each worker starts in a fresh, sandboxed session with only the folders and hosts its role needs.
+                Issue text and web content are treated as data, never as instructions.
+              </p>
+            </article>
+            <article class="decision">
+              <span>06 · Language</span>
+              <h3>Plain words for the human.</h3>
+              <p>
+                Owner-facing text carries no identifiers, hashes, or file paths. A pause between two workers
+                reads “Preparing the next step”, so silence is never mistaken for a stop.
+              </p>
+            </article>
+          </div>
+
+          <p>
+            The technology is deliberately plain: a Python runner and controller built on the standard library,
+            files on disk as the record, a local dashboard, and more test code than product code.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="owner-title">
+        <h2 class="case-section-label" id="owner-title">Human in the loop</h2>
+        <div class="case-copy">
+          <h2>The owner is a decision-maker, not a debugger.</h2>
+          <p>
+            The team never asks an open question. When it needs a person, it offers two or three options with
+            their consequences: approve or reject a plan, accept a named risk, release with follow-ups or send
+            the work back, keep an issue ready for production or hand it to an independent tester. If a worker
+            drafts a question full of internal detail, the controller refuses it, asks for one correction, and
+            otherwise falls back to a safe default.
+          </p>
+          <p>
+            Everything that needs a person sits in one “Waiting on you” list. The mascot carries the same
+            signal. Brix has five moods, in order of urgency: troubled when a run has failed, waiting when a
+            decision is due, building while implementation runs, thinking during planning and review, and
+            resting when the team is idle. His rank follows the last seven days of completed issues, from
+            Rookie through Stacker, Builder, and Architect to Master builder.
+          </p>
+          <figure class="case-figure case-figure-scroll">
+            <a class="case-figure-frame" href="brix-card-decision.webp">
+              <img
+                src="brix-card-decision.webp"
+                width="1984"
+                height="348"
+                loading="lazy"
+                decoding="async"
+                alt="The same Brix card with an exclamation badge and the status Waiting for your decision."
+              />
+            </a>
+            <figcaption>
+              The same card when a decision is due. The mood is always written in words as well, never signalled
+              by the picture alone.
+            </figcaption>
+          </figure>
+          <p>
+            A mascot on an engineering dashboard is a small thing, but it has a job. A status page that people
+            glance at many times a day needs one signal that can be read in a second.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="analytics-title">
+        <h2 class="case-section-label" id="analytics-title">Analytics</h2>
+        <div class="case-copy">
+          <h2>The agents were not the bottleneck.</h2>
+          <p>
+            The dashboard keeps three measures apart on purpose: the tokens the workers used, the time they
+            actually ran, and the time issues spent waiting. Adding them together would hide the most useful
+            finding so far.
+          </p>
+
+          <div class="stat-grid" aria-label="Key figures for 13 to 19 November 2026">
+            <div class="stat"><strong>6</strong><span>Issues delivered through 333 successful worker tasks</span></div>
+            <div class="stat"><strong>51 h</strong><span>Total time the workers were running</span></div>
+            <div class="stat"><strong>365 h</strong><span>Total time the same issues spent waiting</span></div>
+          </div>
+
+          <figure class="case-figure case-figure-scroll">
+            <a class="case-figure-frame" href="overview-kpis.webp">
+              <img
+                src="overview-kpis.webp"
+                width="1984"
+                height="532"
+                loading="lazy"
+                decoding="async"
+                alt="Eight overview tiles: 6 workers, 2 working now, 0 queued issues, 7 active issues, 1 waiting on you, 1 completed today, 6 completed in 7 days, 333 worker tasks in 7 days."
+              />
+            </a>
+            <figcaption>The team overview at the end of the week.</figcaption>
+          </figure>
+
+          <p>
+            In the week of 13 to 19 November the team completed six issues through 333 successful worker tasks.
+            The workers ran for about 51 hours in total. The same issues spent about 365 hours waiting, roughly
+            seven times longer. Several issues wait in parallel, so the hours add up past the clock; the ratio is
+            the point.
+          </p>
+
+          <figure class="case-figure case-figure-scroll">
+            <a class="case-figure-frame" href="analytics-waiting-time.webp">
+              <img
+                src="analytics-waiting-time.webp"
+                width="1984"
+                height="1122"
+                loading="lazy"
+                decoding="async"
+                alt="Waiting time chart for 13 to 19 November: 365 hours in total. CI build 117 hours, your decision 107 hours, standing still about 68 hours, test deployment about 63 hours, QA sign-in about 2.5 hours, other about 7 hours."
+              />
+            </a>
+            <figcaption>What the issues waited for. Builds come first, the owner second.</figcaption>
+          </figure>
+
+          <p>
+            The two largest queues were the build system, at 117 hours, and me, at 107 hours of waiting for a
+            decision. Test deployments added another 63. Once agents do the typing, a faster model changes
+            little. Faster builds, faster deployments, and faster decisions change a lot. The team now also
+            limits how many of its changes may wait for a build at once, so it stops feeding a queue that is
+            already full.
+          </p>
+
+          <figure class="case-figure case-figure-scroll">
+            <a class="case-figure-frame" href="analytics-tokens.webp">
+              <img
+                src="analytics-tokens.webp"
+                width="1984"
+                height="1122"
+                loading="lazy"
+                decoding="async"
+                alt="Token usage chart for 13 to 19 November: 978 million tokens. Frontend 363 million, QA 316 million, Backend 96.2 million, Review 91.3 million, Lead 58.5 million, UX/UI 53.5 million. On 19 November, 192 million of 198 million input tokens were cached."
+              />
+            </a>
+            <figcaption>Token use by worker. Frontend work and browser-based QA account for about 70 percent.</figcaption>
+          </figure>
+
+          <figure class="case-figure case-figure-scroll">
+            <a class="case-figure-frame" href="analytics-worker-time.webp">
+              <img
+                src="analytics-worker-time.webp"
+                width="1984"
+                height="1122"
+                loading="lazy"
+                decoding="async"
+                alt="Worker time chart for 13 to 19 November: 51 hours 20 minutes. Frontend 17 hours 41 minutes, QA 14 hours 6 minutes, Lead 5 hours 42 minutes, Backend 5 hours 42 minutes, UX/UI 4 hours 14 minutes, Review 3 hours 54 minutes. On 19 November the average run took 10 minutes."
+              />
+            </a>
+            <figcaption>Running time by worker. A typical run takes about ten minutes.</figcaption>
+          </figure>
+
+          <p>
+            Two more patterns stood out. Testing costs about as much as building: QA used nearly as many tokens
+            and hours as frontend implementation, because checking real behaviour in a browser is slow, careful
+            work for an agent as well. And coordination is frequent but cheap: the lead handled 136 of the 333
+            tasks, about 40 percent, on roughly 6 percent of the tokens. On the last day of the week, about 97
+            percent of input tokens were served from cache, which is what makes many short, focused runs
+            affordable.
+          </p>
+
+          <figure class="case-figure case-figure-scroll">
+            <a class="case-figure-frame" href="daily-completions.webp">
+              <img
+                src="daily-completions.webp"
+                width="1984"
+                height="1030"
+                loading="lazy"
+                decoding="async"
+                alt="Daily completions chart for 13 to 19 November: 6 completed issues. Successful tasks by worker: Lead 136, Frontend 69, Review 43, QA 32, UX/UI 28, Backend 25."
+              />
+            </a>
+            <figcaption>
+              Issues completed per day, with successful tasks per worker. An issue counts once, when the
+              production-ready handover is recorded.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="outcomes-title">
+        <h2 class="case-section-label" id="outcomes-title">Outcome</h2>
+        <div class="case-copy">
+          <h2>Delivery that runs without being watched.</h2>
+          <p>
+            The result is not a model that writes code faster. It is a delivery process that keeps moving while
+            nobody is watching it, stops when it should, and can explain where it is at any moment.
+          </p>
+
+          <div class="outcome-grid">
+            <div class="outcome">
+              <strong>Issues delivered end to end</strong>
+              <span>From a queued link to a production-ready handover, with review, QA, and interface acceptance on record.</span>
+            </div>
+            <div class="outcome">
+              <strong>Decisions instead of supervision</strong>
+              <span>The owner approves plans and settles real trade-offs instead of watching terminals.</span>
+            </div>
+            <div class="outcome">
+              <strong>A pipeline you can measure</strong>
+              <span>Tokens, running time, and waiting are tracked apart, so the next bottleneck is visible.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="leadership-title">
+        <h2 class="case-section-label" id="leadership-title">Leadership takeaway</h2>
+        <div class="case-copy">
+          <h2>Manage agents as a team, not as a tool.</h2>
+          <p>
+            What made this work is what makes a human team work: clear roles, limited authority, independent
+            review, evidence before claims, and a calm way to say “I am waiting”. The difference is that with
+            agents all of it has to be written down as code, because nothing is understood implicitly.
+          </p>
+          <p>
+            The operating model matters more than the model. Narrow permissions, bounded retries, and honest
+            status language are what make autonomous work trustworthy enough to leave running. And once it is
+            running, the numbers point away from the agents and toward the pipeline and the people around them.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="evidence-title">
+        <h2 class="case-section-label" id="evidence-title">About the evidence</h2>
+        <div class="case-copy">
+          <h2>Where the visuals and numbers come from.</h2>
+          <p>
+            Every image on this page is a cropped capture of the team's own dashboard, taken on 19 November
+            2026. The figures cover the seven days from 13 to 19 November and are counted by the system from its
+            recorded runs. Issue titles and other project details were kept out of frame.
+          </p>
+          <ul class="source-list">
+            <li>
+              <a href="../../#contact">Building or evaluating agent teams? Get in touch →</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer">
+      <a href="../ai-media-discovery/">
+        <span>Previous case study</span>
+        <strong>← AI-powered media discovery</strong>
+      </a>
+      <a href="../../#case-studies">
+        <span>Back</span>
+        <strong>All case studies</strong>
+      </a>
+    </footer>
+    <div class="case-legal">
+      <a class="privacy-link" href="../../privacy/">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <button class="analytics-settings" type="button" data-analytics-settings>Analytics settings</button>
+    </div>
+  </article>
+
+  <script src="../case-study.js"></script>
+  <script src="../../analytics.js"></script>
+</body>
+</html>

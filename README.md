@@ -16,9 +16,10 @@ This project is a static HTML/CSS/JS portfolio focused on a clean editorial layo
 - Click-to-toggle profile photo reveal
   - Starts with `2F1B37AD4236.PNG`
   - Toggles to `1689332889717.jpg` when clicked
-- Two indexable case studies with shared responsive styling
+- Three indexable case studies with shared responsive styling
   - Reliable enterprise AI search for regulated knowledge
   - AI-powered media discovery for Lifebox
+  - An AI agent delivery team, illustrated with dashboard captures
 - Responsive design for desktop and mobile
 - Privacy-first analytics consent
   - Google Analytics loads only after explicit opt-in
@@ -33,6 +34,7 @@ This project is a static HTML/CSS/JS portfolio focused on a clean editorial layo
 - `index.html`: Entire site (HTML, CSS, JS in one file)
 - `case-studies/reliable-enterprise-ai-search/index.html`: Enterprise AI search case study
 - `case-studies/ai-media-discovery/index.html`: Lifebox media discovery case study
+- `case-studies/ai-agent-delivery-team/index.html`: AI agent delivery team case study, with its images and share image (`og.jpg`) in the same folder
 - `case-studies/case-study.css`: Shared case-study layout and responsive styles
 - `case-studies/case-study.js`: Shared case-study theme behavior
 - `analytics.js`: Shared consent, Google tag loading, and analytics events
