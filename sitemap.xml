@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://alpersemerci.com/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://alpersemerci.com/case-studies/reliable-enterprise-ai-search/</loc>
@@ -11,5 +11,9 @@
   <url>
     <loc>https://alpersemerci.com/case-studies/ai-media-discovery/</loc>
     <lastmod>2026-07-25</lastmod>
+  </url>
+  <url>
+    <loc>https://alpersemerci.com/case-studies/ai-agent-delivery-team/</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
 </urlset>

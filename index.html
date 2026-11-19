@@ -53,7 +53,7 @@
           "isPartOf": {
             "@id": "https://alpersemerci.com/#website"
           },
-          "dateModified": "2026-07-25",
+          "dateModified": "2026-11-20",
           "mainEntity": {
             "@id": "https://alpersemerci.com/#person"
           },
@@ -69,6 +69,12 @@
               "@id": "https://alpersemerci.com/case-studies/ai-media-discovery/#article",
               "headline": "Making Personal Media Searchable with Face, Object, and Location Intelligence",
               "url": "https://alpersemerci.com/case-studies/ai-media-discovery/"
+            },
+            {
+              "@type": "Article",
+              "@id": "https://alpersemerci.com/case-studies/ai-agent-delivery-team/#article",
+              "headline": "Building an AI Agent Team That Ships Issues End to End",
+              "url": "https://alpersemerci.com/case-studies/ai-agent-delivery-team/"
             }
           ]
         },
@@ -518,6 +524,41 @@
       text-underline-offset: 4px;
     }
 
+    .case-card-featured {
+      grid-column: 1 / -1;
+      min-height: 0;
+      flex-direction: row;
+      align-items: center;
+      gap: clamp(18px, 4vw, 48px);
+    }
+
+    .case-card-body {
+      display: flex;
+      min-width: 0;
+      flex: 1;
+      flex-direction: column;
+      align-self: stretch;
+    }
+
+    .case-card-featured .case-number {
+      margin-bottom: 28px;
+    }
+
+    .case-card-featured h3 {
+      max-width: 24ch;
+    }
+
+    .case-card-featured .case-card-body > p:not(.case-number):not(.case-card-meta) {
+      max-width: 62ch;
+    }
+
+    .case-card-art {
+      display: block;
+      width: clamp(104px, 15vw, 168px);
+      height: auto;
+      flex: none;
+    }
+
     .writing-item {
       max-width: 72ch;
       border-top: 1px solid var(--line);
@@ -648,6 +689,16 @@
 
       .case-card {
         min-height: 280px;
+      }
+
+      .case-card-featured {
+        min-height: 0;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
+
+      .case-card-art {
+        width: 104px;
       }
 
       .hero-title {
@@ -820,6 +871,29 @@
               Read case study <span aria-hidden="true">→</span>
             </a>
           </article>
+          <article class="case-card case-card-featured">
+            <div class="case-card-body">
+              <p class="case-number">03 · Agentic Engineering</p>
+              <h3>An AI agent team that ships issues end to end.</h3>
+              <p>
+                Six role-based AI workers plan, design, implement, review, and test real product issues, with
+                guardrails, human decisions, and analytics that show where delivery time goes.
+              </p>
+              <p class="case-card-meta">Multi-agent systems · Guardrails · Delivery analytics</p>
+              <a class="case-card-link" href="case-studies/ai-agent-delivery-team/" data-analytics-case-study="ai-agent-delivery-team">
+                Read case study <span aria-hidden="true">→</span>
+              </a>
+            </div>
+            <img
+              class="case-card-art"
+              src="case-studies/ai-agent-delivery-team/brix.webp"
+              width="256"
+              height="240"
+              loading="lazy"
+              decoding="async"
+              alt="Brix, the builder beaver mascot of the agent team dashboard"
+            />
+          </article>
         </div>
       </div>
     </section>
@@ -828,6 +902,17 @@
       <div class="section-label">Writing</div>
       <div class="section-content">
         <h2>Practical perspectives on enterprise AI and engineering leadership.</h2>
+        <article class="writing-item">
+          <p class="writing-meta"><time datetime="2026-11-20">November 20, 2026</time> · Case study</p>
+          <h3>
+            <a href="case-studies/ai-agent-delivery-team/" data-analytics-case-study="ai-agent-delivery-team">
+              The Agents Were Not the Bottleneck: A Week Running an AI Delivery Team
+            </a>
+          </h3>
+          <p>
+            What six AI workers, seven delivery stages, and one week of analytics showed about builds, decisions, and where engineering time goes.
+          </p>
+        </article>
         <article class="writing-item">
           <p class="writing-meta"><time datetime="2025-09-29">September 29, 2025</time> · Proteams</p>
           <h3>
